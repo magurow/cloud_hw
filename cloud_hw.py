@@ -6,16 +6,21 @@ def __getDecDigit(digit):
             return x
 			
 def hexToDec(hexNum):
-    isNegative = False;
+    isNegative = False
     if hexNum[0] == '-':
+        isNegative = True
         hexNum = hexNum[1:]
     decNum = 0
     power = 0
     for digit in range(len(hexNum), 0, -1):
         decNum = decNum + 16 ** power * __getDecDigit(hexNum[digit-1])
         power += 1
-    print("Decimal: " + str(decNum))
-	
+    if 	isNegative != False:
+        print("Decimal: -" + str(decNum))
+    elif isNegative != True:
+        print("Decimal: " + str(decNum))
+
+
 
 def main():
     hexToDec(input("Hex: "))
